@@ -2,6 +2,8 @@
 
 Library containing utility functions in javascript.
 
+> ### _"think twice, code once"_ 💡
+
 Don't waste time writing the same utility functions **everytime**.
 
 ## What's inside
