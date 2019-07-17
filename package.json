@@ -1,0 +1,24 @@
+{
+  "name": "utils",
+  "version": "0.0.1",
+  "description": "Library containing utility functions in javascript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "build": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davide97g/utils.git"
+  },
+  "keywords": [
+    "utils",
+    "algorithms"
+  ],
+  "author": "Davide Ghiotto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davide97g/utils/issues"
+  },
+  "homepage": "https://github.com/davide97g/utils#readme"
+}
