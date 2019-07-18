@@ -24,7 +24,7 @@ More are coming **soon**:
 
 ```javascript
 //import the modules
-const utils = require("utils");
+const utils = require("could-be-utils");
 
 //use the module you want
 // 1° way
