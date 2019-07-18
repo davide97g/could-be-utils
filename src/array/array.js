@@ -7,6 +7,7 @@
 
 // create vector of zeros of length n
 function zeros(n) {
+  if (n === 0) return [];
   let a = new Array(n);
   for (let i = 0; i < n; i++) {
     a[i] = 0;
@@ -25,6 +26,7 @@ function copyArray(v) {
 
 //create an array based on copy of the value passed from input
 function arrayWith(value, N) {
+  if (N === 0) return [];
   let a = new Array(N);
   for (let i = 0; i < N; i++) {
     a[i] = value;

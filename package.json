@@ -4,7 +4,8 @@
   "description": "Library containing utility functions in javascript.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "build": "node index.js"
   },
   "repository": {
@@ -20,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/davide97g/utils/issues"
   },
-  "homepage": "https://github.com/davide97g/utils#readme"
+  "homepage": "https://github.com/davide97g/utils#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
 }
