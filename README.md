@@ -14,11 +14,15 @@ List of different types of utilities:
 - distances
 - random
 - statistics
+- graph
+  - dijkstra with maps
 
 More are coming **soon**:
 
-- sorting
-- min/max
+- graph algorithms: 
+  - dijkstra with array
+  - bellman-ford
+
 
 ## Usage
 
