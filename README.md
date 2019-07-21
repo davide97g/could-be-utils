@@ -19,7 +19,7 @@ List of different types of utilities:
 
 > All utilities module have their own readme file.
 
-You can find all the documentation available [here](https://davide97g.github.io/could-be-utils/docs/index.html).
+You can find all the documentation available [here](https://davide97g.github.io/could-be-utils/).
 
 More are coming **soon**:
 
