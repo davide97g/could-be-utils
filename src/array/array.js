@@ -1,4 +1,5 @@
 /**
+ * @file
  * @name array.js
  * @description
  * A list of utilities for arrays
