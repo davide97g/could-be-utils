@@ -69,8 +69,8 @@ function objectToArray(array) {
  * @description
  * Converts an `array` of arrays into an array of objects, given a list of ordered `keys`
  * @param {Array} array the array to be converted
- * @param {Array[String]} keys the keys of the objects in the new array
- * @returns {Array[Object]} the array of object with `keys` and values from `array`
+ * @param {Array<String>} keys the keys of the objects in the new array
+ * @returns {Array<Object>} the array of object with `keys` and values from `array`
  */
 function arrayToObject(array, keys) {
   let result = [];
@@ -90,7 +90,7 @@ function arrayToObject(array, keys) {
  * @description
  * Extracts the keys from an objects and put them inside an array as strings
  * @param {Object} obj the object to where extract the keys from
- * @returns {Array[String]} the array containing the keys of `obj`
+ * @returns {Array<String>} the array containing the keys of `obj`
  */
 function extractKeys(obj) {
   let keys = [];

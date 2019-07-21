@@ -1,12 +1,13 @@
 {
   "name": "could-be-utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Library containing utility functions in javascript.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "build": "node index.js"
+    "build": "node index.js",
+    "docs": "./node_modules/.bin/jsdoc -c jsdoc.json"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,8 @@
   },
   "homepage": "https://github.com/davide97g/could-be-utils#readme",
   "devDependencies": {
-    "jest": "^24.8.0"
+    "better-docs": "^1.1.6",
+    "jest": "^24.8.0",
+    "jsdoc": "^3.6.3"
   }
 }
