@@ -17,12 +17,13 @@ List of different types of utilities:
 - graph
   - dijkstra with maps
 
+> All utilities module have their own readme file.
+
 More are coming **soon**:
 
-- graph algorithms: 
+- graph algorithms:
   - dijkstra with array
   - bellman-ford
-
 
 ## Usage
 
