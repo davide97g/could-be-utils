@@ -1,4 +1,11 @@
 /**
+ * @name array.js
+ * @description
+ * A list of utilities for arrays
+ * @copyright Davide Ghiotto
+ */
+
+/**
  * @name zeros
  * @description
  * Creates a new array with `n` zeros
