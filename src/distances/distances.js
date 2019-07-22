@@ -1,5 +1,5 @@
 /**
- *
+ * @name Distances
  * @description
  * Class used to handle distances functions
  * @example

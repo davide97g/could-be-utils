@@ -42,7 +42,7 @@
             <div class="column is-3" id="sidebarNav">
                 <div class="sidebar">
                     <nav>
-                        <h2><a href="index.html">Home</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#arrayToObject">arrayToObject</a></li><li><a href="global.html#arrayWith">arrayWith</a></li><li><a href="global.html#copyArray">copyArray</a></li><li><a href="global.html#extractKeys">extractKeys</a></li><li><a href="global.html#objectToArray">objectToArray</a></li><li><a href="global.html#variance">variance</a></li><li><a href="global.html#zeros">zeros</a></li></ul></div>
+                        <h2><a href="index.html">Home</a></h2><div class="category"><h3>Global</h3><ul><li><a href="global.html#arrayToObject">arrayToObject</a></li><li><a href="global.html#arrayWith">arrayWith</a></li><li><a href="global.html#average">average</a></li><li><a href="global.html#copyArray">copyArray</a></li><li><a href="global.html#Distances">Distances</a></li><li><a href="global.html#extractKeys">extractKeys</a></li><li><a href="global.html#objectToArray">objectToArray</a></li><li><a href="global.html#randf">randf</a></li><li><a href="global.html#randi">randi</a></li><li><a href="global.html#variance">variance</a></li><li><a href="global.html#zeros">zeros</a></li></ul></div>
                     </nav>
                 </div>
             </div>
@@ -267,6 +267,77 @@
             
                 <div class="member">
 
+<h4 class="name" id="average">
+    
+    <span class="code-name">
+        average
+    </span>
+</h4>
+
+
+
+
+<div class="description">
+    <p>Calculate the average between the points inside <code>data</code></p>
+<ul>
+<li>returns just the average value if <code>data</code> is an array of values</li>
+<li>returns an array of averages if <code>data</code> is an array of arrays</li>
+</ul>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="statistics_statistics.js.html" class="button">View Source</a>
+            <span>
+                <a href="statistics_statistics.js.html">statistics/statistics.js</a>, <a href="statistics_statistics.js.html#line33">line 33</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
 <h4 class="name" id="copyArray">
     
     <span class="code-name">
@@ -328,6 +399,78 @@
 
 
 
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="Distances">
+    
+    <span class="code-name">
+        Distances
+    </span>
+</h4>
+
+
+
+
+<div class="description">
+    <p>Class used to handle distances functions</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="distances_distances.js.html" class="button">View Source</a>
+            <span>
+                <a href="distances_distances.js.html">distances/distances.js</a>, <a href="distances_distances.js.html#line1">line 1</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>//new instancelet distances = new Distances();//define two pointslet point1 = [1,3];let point2 = [4,-2];//minkowski distance from two pointslet minkowski_distance = distances.minkowski(point1,point2);//chebyshev distance from two pointslet chebyshev_distance = distances.chebyshev(point1,point2);//mahalanobis distance from two pointslet mahalanobis_distance = distances.mahalanobis(point1,point2);//setting the grade for minkowskidistances.setMinkowskiDegree(2);</code></pre>
 
 
 </div>
@@ -468,14 +611,10 @@
             
                 <div class="member">
 
-<h4 class="name" id="variance">
-    
-        
-            <span class='tag'>constant</span>
-        
+<h4 class="name" id="randf">
     
     <span class="code-name">
-        variance
+        randf
     </span>
 </h4>
 
@@ -483,7 +622,7 @@
 
 
 <div class="description">
-    <p>Class used to handle distances functions</p>
+    <p>Generate a random float between <code>a</code> and <code>b</code> (<code>b</code> excluded)</p>
 </div>
 
 
@@ -523,9 +662,9 @@
 
     
         <p class="tag-source">
-            <a href="distances_distances.js.html" class="button">View Source</a>
+            <a href="random_random.js.html" class="button">View Source</a>
             <span>
-                <a href="distances_distances.js.html">distances/distances.js</a>, <a href="distances_distances.js.html#line21">line 21</a>
+                <a href="random_random.js.html">random/random.js</a>, <a href="random_random.js.html#line1">line 1</a>
             </span>
         </p>
     
@@ -535,9 +674,142 @@
 
 
 
-    <h5>Example</h5>
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="randi">
     
-    <pre class="prettyprint"><code>//new instancelet distances = new Distances();//define two pointslet point1 = [1,3];let point2 = [4,-2];//minkowski distance from two pointslet minkowski_distance = distances.minkowski(point1,point2);//chebyshev distance from two pointslet chebyshev_distance = distances.chebyshev(point1,point2);//mahalanobis distance from two pointslet mahalanobis_distance = distances.mahalanobis(point1,point2);//setting the grade for minkowskidistances.setMinkowskiDegree(2);</code></pre>
+    <span class="code-name">
+        randi
+    </span>
+</h4>
+
+
+
+
+<div class="description">
+    <p>Generate a random integer between <code>a</code> and <code>b</code> (<code>b</code> excluded)</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="random_random.js.html" class="button">View Source</a>
+            <span>
+                <a href="random_random.js.html">random/random.js</a>, <a href="random_random.js.html#line12">line 12</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+<h4 class="name" id="variance">
+    
+    <span class="code-name">
+        variance
+    </span>
+</h4>
+
+
+
+
+<div class="description">
+    <p>Calculate the variance between the points inside <code>data</code></p>
+<ul>
+<li>returns just the variance value if <code>data</code> is an array of values</li>
+<li>returns an array of variances if <code>data</code> is an array of arrays</li>
+</ul>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="statistics_statistics.js.html" class="button">View Source</a>
+            <span>
+                <a href="statistics_statistics.js.html">statistics/statistics.js</a>, <a href="statistics_statistics.js.html#line2">line 2</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
 
 
 </div>
@@ -632,7 +904,7 @@
 
 <footer class="footer">
     <div class="content has-text-centered">
-        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sun Jul 21 2019 18:17:51 GMT+0200 (GMT+02:00)</p>
+        <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Jul 22 2019 11:01:22 GMT+0200 (GMT+02:00)</p>
         <p class="sidebar-created-by">
             <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by 
             <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers</a>
