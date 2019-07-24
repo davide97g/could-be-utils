@@ -44,7 +44,10 @@ Distances.prototype = {
     if (algorithm === "minkowski") this.default = this.minkowski;
     else if (algorithm === "chebyshev") this.default = this.chebyshev;
     else if (algorithm === "mahalanobis") this.default = this.mahalanobis;
-    else this.default = this.minkowski;
+    else {
+      this.default = this.minkowski;
+      throw "not defined, default minkowski";
+    }
   },
 
   /**

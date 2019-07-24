@@ -27,5 +27,8 @@
     "better-docs": "^1.1.6",
     "jest": "^24.8.0",
     "jsdoc": "^3.6.3"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security"
   }
 }
