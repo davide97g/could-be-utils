@@ -1,3 +1,8 @@
+![GitHub issues](https://img.shields.io/github/issues/davide97g/could-be-utils)
+![GitHub](https://img.shields.io/github/license/davide97g/could-be-utils)
+![npm](https://img.shields.io/npm/v/could-be-utils)
+![npm](https://img.shields.io/npm/dw/could-be-utils)
+
 # could-be-utils
 
 Library containing utility functions in javascript.
