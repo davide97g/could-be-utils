@@ -1,14 +1,7 @@
 /*
-Dijkstra algorithm
-*/
-function extractKeys(obj) {
-  let keys = [];
-  let key;
-  for (key in obj) {
-    Object.prototype.hasOwnProperty.call(obj, key) && keys.push(key);
-  }
-  return keys;
-}
+ * Dijkstra algorithm
+ */
+const extractKeys = require("../array/array").extractKeys;
 
 function findPaths(map, start, end) {
   let costs = {},
@@ -133,5 +126,22 @@ Graph.findShortestPath = function(map, start, end) {
     return findShortestPath(map, toArray(arguments, 1));
   }
 };
+
+//? tests
+// let map = {
+//   a: { b: 3, c: 1 },
+//   b: { a: 2, c: 1 },
+//   c: { a: 4, b: 1 },
+//   d: { a: 4 }
+// };
+// console.table(map);
+// let g = new Dijkstra(map);
+// console.info(g.findShortestPath("a", "b")); // => ['a', 'c', 'b']
+// console.info(g.findShortestPath("a", "c")); // => ['a', 'c']
+// console.info(g.findShortestPath("b", "a")); // => ['b', 'a']
+// console.info(g.findShortestPath("b", "c", "b")); // => ['b', 'c', 'b']
+// console.info(g.findShortestPath("c", "a", "b")); // => ['c', 'b', 'a', 'c', 'b']
+// console.info(g.findShortestPath("c", "b", "a")); // => ['c', 'b', 'a']
+// console.info(g.findShortestPath("d", "a")); // => ['d','a']
 
 module.exports = Graph;

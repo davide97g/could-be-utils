@@ -52,7 +52,10 @@ Graph.prototype = {
         console.info("Graph contains negative weight cycle");
     }
     console.table(dist);
-  }
+  },
+  //fill all the data needed automatically with these two twin functions
+  defineWithMap: function(map) {},
+  defineWithArray: function(array) {}
 };
 
 // let V = 5; // Number of vertices in graph
