@@ -80,10 +80,7 @@ Distances.prototype = {
    * @returns {number} minkowski distance
    */
   minkowski: function(point1, point2) {
-    if (point1.length !== point2.length) {
-      console.warn("point of different lengths");
-      return;
-    }
+    if (!check(point1, point2)) throw "points of different lengths";
     let sum = 0;
     for (let i = 0; i < point1.length; i++)
       sum += Math.pow(Math.abs(point1[i] - point2[i]), this.p);
@@ -97,11 +94,12 @@ Distances.prototype = {
    * @returns {number} chebyshev distance between the two points
    */
   chebyshev: function(point1, point2) {
+    if (!check(point1, point2)) throw "points of different lengths";
     let value;
     let max = 0;
     for (let i = 0; i < point1.length; i++) {
       value = Math.abs(point2[i] - point1[i]);
-      if (value > max) max = value;
+      max = Math.max(value,max);
     }
     return max;
   },
@@ -113,6 +111,7 @@ Distances.prototype = {
    * @returns {number} mahalanobis distance between the two points
    */
   mahalanobis: function(point1, point2) {
+    if (!check(point1, point2)) throw "points of different lengths";
     if (this.data.length === 0) throw "no data";
     let sum = 0;
     for (let i = 0; i < point1.length; i++)
@@ -120,5 +119,9 @@ Distances.prototype = {
     return Math.sqrt(sum);
   }
 };
+
+function check(point1, point2) {
+  return point1.length === point2.length;
+}
 
 module.exports = Distances;
