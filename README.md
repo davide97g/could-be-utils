@@ -21,7 +21,7 @@ List of different types of utilities:
 - statistics
 - graph
   - dijkstra with maps
-  - bellman-ford with maps
+  - bellman-ford with maps 🔥NEW🔥
 
 > All utilities module have their own readme file.
 
