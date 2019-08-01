@@ -77,6 +77,10 @@ function convertToString(number) {
   return res;
 }
 
+// let array = [[0, 1, 2], [1, 1, 3], [2, 3, 2]];
+// let m = arrayToMap(array);
+// console.table(m);
+
 module.exports = {
   arrayToMap: arrayToMap,
   mapToArray: mapToArray,
