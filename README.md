@@ -21,6 +21,7 @@ List of different types of utilities:
 - statistics
 - graph
   - dijkstra with maps
+  - bellman-ford with maps
 
 > All utilities module have their own readme file.
 
@@ -30,7 +31,7 @@ More are coming **soon**:
 
 - graph algorithms:
   - dijkstra with array
-  - bellman-ford
+  - bellman-ford with array
 
 ## Usage
 
