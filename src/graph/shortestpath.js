@@ -1,51 +1,38 @@
 const zeros = require("../array/array").zeros;
-const arrayWith = require("../array/array").arrayWith;
 function bottomUp(map) {
   let N = map.length;
   let M = map[0].length;
   let c = new Array(N);
-  for (let i = 0; i < N; i++) {
-    c[i] = zeros(M);
-    c[i].push(Infinity);
-  }
-  c.push(arrayWith(Infinity, M));
-  c[N - 1][M] = 0;
-  c[N][M - 1] = 0;
+  for (let i = 0; i < N; i++) c[i] = zeros(M);
+
   for (let i = N - 1; i >= 0; i--) {
     for (let j = M - 1; j >= 0; j--) {
       c[i][j] = map[i][j];
-      let right = c[i][j + 1];
-      let down = c[i + 1][j];
-      if (down < right) {
-        c[i][j] += down;
+      if (i === N - 1 && j === M - 1) continue;
+      else if (i !== N - 1 && j !== M - 1) {
+        c[i][j] += Math.min(c[i][j + 1], c[i + 1][j]);
       } else {
-        c[i][j] += right;
+        if (i === N - 1) c[i][j] += c[i][j + 1];
+        else c[i][j] += c[i + 1][j];
       }
     }
   }
   return c;
 }
 
-function findPath(c, x, y, endX, endY) {
-  let path = [];
-  let N = c.length - 1;
-  let M = c[0].length - 1;
-  let X = endX || N - 1;
-  let Y = endY || M - 1;
-  path.push("" + x + y);
-  for (let i = x; i < N; i++) {
-    for (let j = y; j < M; j++) {
-      if (i == X && j == Y) return path;
-      let right = c[i][j + 1];
-      let down = c[i + 1][j];
-      if (down <= right) {
-        path.push("" + (i + 1) + j);
-        i++;
-        j--;
-      } else {
-        path.push("" + i + (j + 1));
-      }
-    }
+function findPath(c) {
+  let N = c.length;
+  let M = c[0].length;
+  let path = new Array(N + M - 2);
+  let row = 0;
+  let column = 0;
+  while (row + column <= N + M - 2) {
+    path[row + column] = "" + row + column;
+    // c[row][column] = "*" + c[row][column]; // * = solution
+    down = row === N - 1 ? Infinity : c[row + 1][column];
+    right = column === M - 1 ? Infinity : c[row][column + 1];
+    if (down <= right) row++;
+    else column++;
   }
   return path;
 }

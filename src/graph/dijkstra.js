@@ -127,7 +127,7 @@ Graph.findShortestPath = function(map, start, end) {
   }
 };
 
-//? tests
+// //? tests
 // let map = {
 //   a: { b: 3, c: 1 },
 //   b: { a: 2, c: 1 },
@@ -135,7 +135,7 @@ Graph.findShortestPath = function(map, start, end) {
 //   d: { a: 4 }
 // };
 // console.table(map);
-// let g = new Dijkstra(map);
+// let g = new Graph(map);
 // console.info(g.findShortestPath("a", "b")); // => ['a', 'c', 'b']
 // console.info(g.findShortestPath("a", "c")); // => ['a', 'c']
 // console.info(g.findShortestPath("b", "a")); // => ['b', 'a']

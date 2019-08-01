@@ -1,6 +1,7 @@
 const array = require("../array/array");
+const extractKeys = array.extractKeys;
 // An object to represent a weighted edge in graph
-const Edge = () => {
+const createEdge = () => {
   return {
     src: 0,
     dest: 0,
@@ -9,11 +10,25 @@ const Edge = () => {
 };
 
 // Creates a graph with V vertices and E edges
-const Graph = function(v, e) {
-  this.V = v;
+const Graph = function(map) {
+  let keys = extractKeys(map);
+  this.keys = keys;
+  this.V = keys.length;
+  let e = 0;
+  let secondaryKeys;
+  this.edge = [];
+  for (let i = 0; i < keys.length; i++) {
+    secondaryKeys = extractKeys(map[keys[i]]);
+    e += secondaryKeys.length;
+    for (let j = 0; j < secondaryKeys.length; j++) {
+      let edge = createEdge();
+      edge.src = keys[i];
+      edge.dest = secondaryKeys[j];
+      edge.weight = map[keys[i]][secondaryKeys[j]];
+      this.edge.push(edge);
+    }
+  }
   this.E = e;
-  this.edge = new Array(e);
-  for (let i = 0; i < e; ++i) this.edge[i] = Edge();
 };
 
 Graph.prototype = {
@@ -21,10 +36,12 @@ Graph.prototype = {
   // to all other vertices using Bellman-Ford algorithm.  The
   // function also detects negative weight cycle
   BellmanFord: function(src) {
-    let graph = this;
-    let V = graph.V;
-    let E = graph.E;
-    let dist = array.arrayWith(Infinity, V);
+    let V = this.V;
+    let E = this.E;
+    let dist = {};
+    for (let i = 0; i < this.keys.length; i++) {
+      dist[this.keys[i]] = Infinity;
+    }
     dist[src] = 0;
 
     // Step 2: Relax all edges |V| - 1 times. A simple
@@ -32,9 +49,9 @@ Graph.prototype = {
     // have at-most |V| - 1 edges
     for (let i = 1; i < V; ++i) {
       for (let j = 0; j < E; ++j) {
-        let u = graph.edge[j].src;
-        let v = graph.edge[j].dest;
-        let weight = graph.edge[j].weight;
+        let u = this.edge[j].src;
+        let v = this.edge[j].dest;
+        let weight = this.edge[j].weight;
         if (dist[u] != Infinity && dist[u] + weight < dist[v])
           dist[v] = dist[u] + weight;
       }
@@ -45,54 +62,29 @@ Graph.prototype = {
     // contain negative weight cycle. If we get a shorter
     //  path, then there is a cycle.
     for (let j = 0; j < E; ++j) {
-      let u = graph.edge[j].src;
-      let v = graph.edge[j].dest;
-      let weight = graph.edge[j].weight;
+      let u = this.edge[j].src;
+      let v = this.edge[j].dest;
+      let weight = this.edge[j].weight;
       if (dist[u] != Infinity && dist[u] + weight < dist[v])
-        console.info("Graph contains negative weight cycle");
+        console.warn("Graph contains negative weight cycle on edge: " + j);
     }
-    console.table(dist);
+    return dist;
   },
-  //fill all the data needed automatically with these two twin functions
-  defineWithMap: function(map) {},
-  defineWithArray: function(array) {}
+  setEdge(i, src, dest, weight) {
+    this.edge[i].src = src;
+    this.edge[i].dest = dest;
+    this.edge[i].weight = weight;
+  }
 };
 
-// let V = 5; // Number of vertices in graph
-// let E = 8; // Number of edges in graph
+//? tests
+// let map = {
+//   a: { b: 3, c: 1 },
+//   b: { a: 2, c: 1 },
+//   c: { a: 1, b: 1 },
+//   d: { a: 4 }
+// };
+// let g = new Graph(map);
+// let paths = g.BellmanFord("a");
 
-// let graph = new Graph(V, E);
-
-// graph.edge[0].src = 0;
-// graph.edge[0].dest = 1;
-// graph.edge[0].weight = -1;
-
-// graph.edge[1].src = 0;
-// graph.edge[1].dest = 2;
-// graph.edge[1].weight = 4;
-
-// graph.edge[2].src = 1;
-// graph.edge[2].dest = 2;
-// graph.edge[2].weight = 3;
-
-// graph.edge[3].src = 1;
-// graph.edge[3].dest = 3;
-// graph.edge[3].weight = 2;
-
-// graph.edge[4].src = 1;
-// graph.edge[4].dest = 4;
-// graph.edge[4].weight = 2;
-
-// graph.edge[5].src = 3;
-// graph.edge[5].dest = 2;
-// graph.edge[5].weight = 5;
-
-// graph.edge[6].src = 3;
-// graph.edge[6].dest = 1;
-// graph.edge[6].weight = 1;
-
-// graph.edge[7].src = 4;
-// graph.edge[7].dest = 3;
-// graph.edge[7].weight = -3;
-
-// graph.BellmanFord(0);
+module.exports = Graph;

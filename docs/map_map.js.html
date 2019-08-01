@@ -1,9 +1,11 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: map/map.js</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -49,8 +51,8 @@
             <div class="column is-9-desktop">
                 <div class="content" id="main-content-wrapper">
                     <header class="page-title">
-                        <p>Title</p>
-                        <h1>Home</h1>
+                        <p>Source</p>
+                        <h1>map/map.js</h1>
                     </header>
                     
                     
@@ -58,178 +60,96 @@
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><p><img src="https://img.shields.io/github/issues/davide97g/could-be-utils" alt="GitHub issues">
-<img src="https://img.shields.io/github/license/davide97g/could-be-utils" alt="GitHub">
-<img src="https://img.shields.io/npm/v/could-be-utils" alt="npm">
-<img src="https://img.shields.io/npm/dw/could-be-utils" alt="npm"></p>
-<h1>could-be-utils</h1>
-<p>Library containing utility functions in javascript.</p>
-<blockquote>
-<h3><em>&quot;think twice, code once&quot;</em> 💡</h3>
-</blockquote>
-<p>Don't waste time writing the same utility functions <strong>everytime</strong>.</p>
-<h2>What's inside</h2>
-<p>List of different types of utilities:</p>
-<ul>
-<li>array</li>
-<li>distances</li>
-<li>random</li>
-<li>statistics</li>
-<li>graph
-<ul>
-<li>dijkstra with maps</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>All utilities module have their own readme file.</p>
-</blockquote>
-<p>You can find all the documentation available <a href="https://davide97g.github.io/could-be-utils/">here</a>.</p>
-<p>More are coming <strong>soon</strong>:</p>
-<ul>
-<li>graph algorithms:
-<ul>
-<li>dijkstra with array</li>
-<li>bellman-ford</li>
-</ul>
-</li>
-</ul>
-<h2>Usage</h2>
-<pre class="prettyprint source lang-javascript"><code>//import the modules
-const utils = require(&quot;could-be-utils&quot;);
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Map utilities functions
+ */
 
-//use the module you want
-// 1° way
-//import and isolate the random module
-const random = utils.random;
-let random_integer_value = random.randi(0, 10);
-// 2° way
-// scan through the utils variable
-let random_integer_value = utils.random.randi(0, 10);
+/**
+ * @name arrayToMap
+ * @description
+ * Converts a matrix into a DAG graph as a map
+ * @param {Array} array matrix with values for DAG convertion
+ * @returns {Object} map
+ */
+function arrayToMap(array) {
+  let map = {};
+  let key, down, right;
+  let neighbors;
+  for (let i = 0; i &lt; array.length; i++) {
+    for (let j = 0; j &lt; array[i].length; j++) {
+      key = "" + i + j;
+      neighbors = {};
+      if (i !== array.length - 1) {
+        // can go down
+        down = "" + (i + 1) + j;
+        neighbors[down] = array[i + 1][j];
+      }
+      if (j !== array[i].length - 1) {
+        //can go right
+        right = "" + i + (j + 1);
+        neighbors[right] = array[i][j + 1];
+      }
+      map[key] = neighbors;
+    }
+  }
+  return map;
+}
 
-//import the statistics module
-const statistics = utils.statistics;
-let avg = statistics.avg([1, 2, 3, 4, 5]); // avg = 3
-</code></pre></article>
+/**
+ * @name mapToArray
+ * @description
+ * Converts a Direct Acyclic Graph (DAG) into an array
+ * @param {Object} map DAG to be converted
+ * @returns {Array} array
+ */
+function mapToArray(map) {
+  let array = [];
+  return array;
+}
+
+function numberToLetter(number) {
+  switch (number) {
+    case 0:
+      return "a";
+    case 1:
+      return "b";
+    case 2:
+      return "c";
+    case 3:
+      return "d";
+    case 4:
+      return "e";
+    case 5:
+      return "f";
+    case 6:
+      return "g";
+    case 7:
+      return "h";
+    case 8:
+      return "i";
+    case 9:
+      return "l";
+  }
+}
+
+function convertToString(number) {
+  let s = number.toString();
+  let res = "";
+  for (let i = 0; i &lt; s.length; i++) res += numberToLetter(parseInt(s[i]));
+  return res;
+}
+
+module.exports = {
+  arrayToMap: arrayToMap,
+  mapToArray: mapToArray,
+  numberToLetter: numberToLetter,
+  convertToString: convertToString
+};
+</code></pre>
+        </article>
     </section>
-
-
-
-
-
-
-
-
-
-<section>
-
-<header>
-    
-        <h2>array.js</h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description"><p>A list of utilities for arrays</p></div>
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-copyright">Copyright:</dt>
-    <dd class="tag-copyright"><ul class="dummy"><li>Davide Ghiotto</li></ul></dd>
-    
-
-    
-
-    
-    
-
-    
-
-    
-
-    
-        <p class="tag-source">
-            <a href="array_array.js.html" class="button">View Source</a>
-            <span>
-                <a href="array_array.js.html">array/array.js</a>, <a href="array_array.js.html#line1">line 1</a>
-            </span>
-        </p>
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
 
 
 
