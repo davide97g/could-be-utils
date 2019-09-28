@@ -79,7 +79,20 @@ function convertToString(number) {
 
 // let array = [[0, 1, 2], [1, 1, 3], [2, 3, 2]];
 // let m = arrayToMap(array);
+
+// let m2 = {
+//   "00": { "10": 1, "01": 1 },
+//   "01": { "11": 1, "02": 2 },
+//   "02": { "12": 3 },
+//   "10": { "11": 1, "20": 2 },
+//   "11": { "12": 3, "21": 3 },
+//   "12": { "22": 2 },
+//   "20": { "21": 3 },
+//   "21": { "22": 2 },
+//   "22": {}
+// };
 // console.table(m);
+// console.table(m2);
 
 module.exports = {
   arrayToMap: arrayToMap,
